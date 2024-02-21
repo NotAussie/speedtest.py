@@ -17,3 +17,23 @@ PIP: `pip install speedtest.py`
 
 Conda: `conda install speedtest.py`
 > We're currently not published on Conda
+
+## `✨` Example
+Example of using Speedtest.py
+
+```python
+from speedtest import Client
+import asyncio
+
+client = Client(
+  executable="speedtest"  # Only needs changing on Windows or Linux installs that have a different executable/command name.
+)
+
+async def app():
+  results = await client.test()
+
+  print("Bandwidth: " + str(results.download.bandwidth))
+
+
+asyncio.run(app())
+```
