@@ -30,9 +30,9 @@ client = Client(
 )
 
 async def app():
-  results = await client.test()
+  result = await client.test()
 
-  print("Bandwidth: " + str(results.download.bandwidth))
+  print("Bandwidth: " + str(result.download.bandwidth))
 
 
 asyncio.run(app())
