@@ -71,3 +71,12 @@ async def app():
 
 asyncio.run(app())
 ```
+
+## `📈` Star History
+<a href="https://star-history.com/#notaussie/speedtest.py&Date">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=notaussie/speedtest.py&type=Date&theme=dark" />
+    <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=notaussie/speedtest.py&type=Date" />
+    <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=notaussie/speedtest.py&type=Date" />
+  </picture>
+</a>
