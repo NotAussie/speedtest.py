@@ -19,20 +19,54 @@ Conda: `conda install speedtest.py`
 > We're currently not published on Conda
 
 ## `✨` Example
-Example of using Speedtest.py
+Examples of using Speedtest.py
 
+### 1: Basic speedtest
 ```python
+# Imports
 from speedtest import Client
 import asyncio
 
+# Define the client
 client = Client(
   executable="speedtest"  # Only needs changing on Windows or Linux installs that have a different executable/command name.
 )
 
+# Define app function
 async def app():
+  # Run a test with an automatically picked server
   result = await client.test()
 
-  print("Bandwidth: " + str(result.download.bandwidth))
+  # Print statistics
+  print(f"Download bandwidth:  {str(result.download.bandwidth) * 8 / 1_000_000:.2f} Mbps")
+  print(f"Upload bandwidth:  {str(result.upload.bandwidth) * 8 / 1_000_000:.2f} Mbps")
+
+
+asyncio.run(app())
+```
+
+### 2: Speedtest with selected server
+```python
+# Imports
+from speedtest import Client
+import asyncio
+
+# Define the client
+client = Client(
+  executable="speedtest"  # Only needs changing on Windows or Linux installs that have a different executable/command name.
+)
+
+# Define app function
+async def app():
+  # Get a list of nearby servers
+  servers = await client.servers()
+
+  # Run a test with the first server
+  result = await client.test(server=servers[0])
+
+  # Print statistics
+  print(f"Download bandwidth:  {str(result.download.bandwidth) * 8 / 1_000_000:.2f} Mbps")
+  print(f"Upload bandwidth:  {str(result.upload.bandwidth) * 8 / 1_000_000:.2f} Mbps")
 
 
 asyncio.run(app())

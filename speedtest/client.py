@@ -2,7 +2,8 @@ import asyncio
 from asyncio import subprocess
 from typing import List
 import json
-from .classes import Server
+from .classes.server import Server
+from .classes.test import Test
 from .errors import *
 
 
@@ -10,7 +11,7 @@ class Client:
     def __init__(self, executable: str) -> None:
         self.executable = executable
 
-    async def run(self, inputs: List[str]) -> dict:
+    async def run(self, inputs: List[str] = []) -> dict:
         """Runs a CLI command and then parses the output into either a JSON object or an error"""
 
         # Add the format arg
@@ -61,3 +62,19 @@ class Client:
                 output.append(Server(server))
 
             return output
+
+    async def test(self, server: Server = None) -> Test:
+        """"""
+
+        # The arguments to pass to the run function
+        args = []
+
+        # If a server has been passed
+        if server:
+            args.append("-s")
+            args.append(str(server.id))
+
+        # Run the test
+        result = await self.run(args)
+
+        return Test(result)
