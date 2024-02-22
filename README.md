@@ -1,7 +1,7 @@
 ## `🛜` Speedtest.py
 > This project is not an offical Speedtest wrapper and therefore is not endorsed by Ookla.
 
-Speedtest.py is a simple asynchronous wrapper for [Speedtest.net](https://www.speedtest.net/) built around the OOP coding style.
+Speedtest.py is a simple asynchronous wrapper for [Speedtest.net](https://www.speedtest.net/) built around the OOP coding style. We also use zero external packages/modules.
 
 <br>
 
